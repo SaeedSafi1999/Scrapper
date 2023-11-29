@@ -1,4 +1,5 @@
-﻿using Core.Interfaces;
+﻿using Core.DTOs;
+using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ScrapperAPI.Controllers
@@ -8,22 +9,23 @@ namespace ScrapperAPI.Controllers
     public class Scrapper : ControllerBase
     {
         private readonly IDaadScrapper _daadScrapper;
+        private readonly ILinkedInScrapper _linkedInScrapper;
         private readonly IJobBankCanadaCrapper _canadaCrapper;
 
-        public Scrapper(IDaadScrapper daadScrapper, IJobBankCanadaCrapper canadaCrapper)
+        public Scrapper(IDaadScrapper daadScrapper, IJobBankCanadaCrapper canadaCrapper, ILinkedInScrapper linkedInScrapper)
         {
             _daadScrapper = daadScrapper;
             _canadaCrapper = canadaCrapper;
+            _linkedInScrapper = linkedInScrapper;
         }
 
-        [HttpGet("GetData")]
-        public async Task<ActionResult<string>> Get()
+        [HttpPost("GetDataFromLinkedIn")]
+        public async Task<ActionResult<string>> Get(LinkedInScrapperDTO Request)
         {
             try
             {
-                var daad = await _daadScrapper.ScrapDaad();
-                //var jobbank = await _canadaCrapper.ScrapJobBankSite();
-                return Ok($"daad stored with lat lng:{daad}");
+                var linkedin = await _linkedInScrapper.Scrap(Request);
+                return Ok($"daad stored with lat lng:{linkedin}");
             }
             catch (Exception ex)
             {

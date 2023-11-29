@@ -114,39 +114,73 @@ namespace Infrestructure.Migrations
 
             modelBuilder.Entity("Core.Entities.Job", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"));
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JobTitel")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("Lang")
+                    b.Property<float?>("Lang")
                         .HasColumnType("real");
 
-                    b.Property<string>("Salary")
-                        .IsRequired()
+                    b.Property<string>("applicationsCount")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Time")
-                        .IsRequired()
+                    b.Property<string>("companyId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("WorkHour")
-                        .IsRequired()
+                    b.Property<string>("companyName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("lat")
+                    b.Property<string>("companyUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("contractType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("experienceLevel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("jobUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("jobid")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float?>("lat")
                         .HasColumnType("real");
 
-                    b.HasKey("Id");
+                    b.Property<string>("location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("postedTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("posterFullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("posterProfileUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("publishedAt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("salary")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sector")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("workType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
 
                     b.ToTable("Jobs");
                 });

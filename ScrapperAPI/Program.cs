@@ -19,6 +19,9 @@ builder.Services.AddScoped<IDaadScrapper, DaadScrapper>();
 //add jobbank canada services
 builder.Services.AddScoped<IJobBankCanadaCrapper, JobBankCanadaCrapper>();
 
+//add limkedin services
+builder.Services.AddScoped<ILinkedInScrapper, LinkedInScrapper>();
+
 
 //Set DBContext
 builder.Services.AddDbContext<AppDataContext>(options =>

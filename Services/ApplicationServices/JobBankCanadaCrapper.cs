@@ -1,5 +1,4 @@
-﻿using Core.Entities;
-using Core.Interfaces;
+﻿using Core.Interfaces;
 using Infrestructure.DataContext;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -52,16 +51,16 @@ namespace Services.ApplicationServices
                     var Time = drive.FindElement(By.CssSelector(".job-posting-brief > li:nth-child(3) > span:nth-child(3) > span ")).Text;
 
                     //map to specefic class
-                    await _db.Jobs.AddAsync(new Job
-                    {
-                        City = City,
-                        JobTitel = JobTitel,
-                        Salary = Salary,
-                        Time = Time,
-                        WorkHour = WorkHour,
-                        Lang = 121221,
-                        lat = 1313123
-                    });
+                    //await _db.Jobs.AddAsync(new Job
+                    //{
+                    //    City = City,
+                    //    JobTitel = JobTitel,
+                    //    Salary = Salary,
+                    //    Time = Time,
+                    //    WorkHour = WorkHour,
+                    //    Lang = 121221,
+                    //    lat = 1313123
+                    //});
                 }
 
 
