@@ -4,6 +4,6 @@ namespace Core.Interfaces
 {
     public interface IJobAndEjucationServices
     {
-        Task<JobsAndEgucationsDTO> GetData();
+        Task<JobsAndEgucationsDTO> GetData(float lat1, float lon1, float lat2, float lon2);
     }
 }

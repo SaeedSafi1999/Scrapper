@@ -22,6 +22,9 @@ builder.Services.AddScoped<IJobBankCanadaCrapper, JobBankCanadaCrapper>();
 //add limkedin services
 builder.Services.AddScoped<ILinkedInScrapper, LinkedInScrapper>();
 
+// add data provider services
+builder.Services.AddScoped<IJobAndEjucationServices, JobAndEjucationServices>();
+
 
 //Set DBContext
 builder.Services.AddDbContext<AppDataContext>(options =>
