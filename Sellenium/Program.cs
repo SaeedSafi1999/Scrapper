@@ -70,7 +70,6 @@
 ////print this if it has no error
 //Console.WriteLine("compeleted!");
 
-using RestSharp;
 
 //var options = new ChromeOptions();
 //options.AddArguments(@"user-data-dir=C:\Users\Caro-2\AppData\Local\Google\Chrome\User Data\");
@@ -184,39 +183,17 @@ using RestSharp;
 //}
 
 
-namespace OpenStreetMapAPI
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+//var db = new AppDataContext(new Microsoft.EntityFrameworkCore.DbContextOptions<AppDataContext>());
+//var Data = new LinkedInScrapper(db);
+//var data = await Data.Scrap(new Core.DTOs.LinkedInScrapperDTO
+//{
 
-            string cityName = "Tehran";
-            var coordinates = GetCoordinates(cityName);
-            Console.WriteLine($"The coordinates of cityName are: lat:{coordinates[0]}, lng:{coordinates[1]}");
+//});
 
-
-            static double[] GetCoordinates(string cityName)
-            {
-
-                var client = new RestClient();
-                var request = new RestRequest("https://nominatim.openstreetmap.org/search", Method.Get);
-                request.AddParameter("format", "json");
-                request.AddParameter("q", cityName);
-                request.AddParameter("limit", "1");
-
-                var response = client.Execute(request);
-                dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(response.Content);
-
-                double[] coordinates = new double[2];
-                coordinates[0] = (double)data[0].lat;
-                coordinates[1] = (double)data[0].lon;
-
-                return coordinates;
-            }
-        }
-    }
-}
+List<string> Countries = new List<string>() { "canada", "new york", "sweden", "berlin", "netherlands" };
+var RandomNum = new Random();
+var CountryName = Countries[RandomNum.Next(1, 5)];
+Console.Write(CountryName);
 
 
 
